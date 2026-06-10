@@ -4,11 +4,13 @@ Projeto desenvolvido para gerenciamento de uma livraria, permitindo o controle d
 
 ## Funcionalidades
 
+- Login
 - Cadastro de livros
 - Cadastro de clientes
 - Registro de vendas
+- Histórico de vendas
+- Dashboard gerencial
 - Controle de estoque
-- Consultas e relatórios de vendas
 
 ## Estrutura do Banco
 
@@ -27,7 +29,9 @@ Projeto desenvolvido para gerenciamento de uma livraria, permitindo o controle d
 - Livros mais vendidos
 - Consulta de estoque baixo
 
-## Tecnologias utilizadas
+## Tecnologias
 
+- Python
+- Tkinter
 - MySQL
 - MySQL Workbench

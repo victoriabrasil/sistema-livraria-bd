@@ -1,6 +1,6 @@
 # Sistema de Livraria - Banco de Dados
 
-Projeto desenvolvido para gerenciamento de uma livraria, permitindo o controle de livros, clientes, vendas e estoque.
+Projeto acadêmico desenvolvido para as disciplinas de Laboratório de Banco de Dados e Laboratório de Engenharia de Software.
 
 ## Funcionalidades
 
@@ -8,11 +8,41 @@ Projeto desenvolvido para gerenciamento de uma livraria, permitindo o controle d
 - Cadastro de livros
 - Cadastro de clientes
 - Registro de vendas
-- Histórico de vendas
-- Dashboard gerencial
 - Controle de estoque
+- Histórico de vendas
+- Integração com banco de dados MySQL
 
-## Estrutura do Banco
+## Tecnologias Utilizadas
+
+- Python 3
+- Tkinter
+- MySQL
+- MySQL Workbench
+- Git e GitHub
+- Visual Studio Code
+
+## Estrutura do Projeto
+
+livraria-vscode/
+
+main.py
+conexao.py
+
+telas/
+├── login.py
+├── livros.py
+├── clientes.py
+├── vendas.py
+└── historico_vendas.py
+
+banco/
+├── schema.sql
+├── dados.sql
+└── consultas.sql
+
+## Banco de Dados
+
+O banco de dados é composto pelas tabelas:
 
 - livros
 - autores
@@ -28,10 +58,3 @@ Projeto desenvolvido para gerenciamento de uma livraria, permitindo o controle d
 - Total gasto por cliente
 - Livros mais vendidos
 - Consulta de estoque baixo
-
-## Tecnologias
-
-- Python
-- Tkinter
-- MySQL
-- MySQL Workbench

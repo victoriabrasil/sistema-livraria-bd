@@ -1,0 +1,79 @@
+-- Vendas com cliente
+
+SELECT 
+    v.id_venda,
+    c.nome AS cliente,
+    v.data_venda,
+    v.metodo_pagamento,
+    v.valor_total
+FROM vendas v
+JOIN clientes c ON v.id_cliente = c.id_cliente;
+
+-- Itens da venda
+
+SELECT 
+    v.id_venda,
+    c.nome AS cliente,
+    l.nome AS livro,
+    iv.quantidade,
+    iv.preco_unitario
+FROM itens_venda iv
+JOIN vendas v ON iv.id_venda = v.id_venda
+JOIN clientes c ON v.id_cliente = c.id_cliente
+JOIN livros l ON iv.id_livro = l.id_livro;
+
+-- Relatório completo
+
+SELECT 
+    c.nome AS cliente,
+    v.id_venda,
+    v.data_venda,
+    l.nome AS livro,
+    iv.quantidade,
+    iv.preco_unitario
+FROM vendas v
+JOIN clientes c ON v.id_cliente = c.id_cliente
+JOIN itens_venda iv ON v.id_venda = iv.id_venda
+JOIN livros l ON iv.id_livro = l.id_livro
+ORDER BY v.id_venda;
+
+-- Total por cliente
+
+SELECT 
+    c.nome AS cliente,
+    SUM(v.valor_total) AS total_gasto
+FROM clientes c
+JOIN vendas v ON c.id_cliente = v.id_cliente
+GROUP BY c.id_cliente, c.nome;
+
+-- Livro mais vendido
+
+SELECT 
+    l.nome,
+    SUM(iv.quantidade) AS total_vendido
+FROM itens_venda iv
+JOIN livros l ON iv.id_livro = l.id_livro
+GROUP BY l.id_livro, l.nome
+ORDER BY total_vendido DESC;
+
+-- Livros com pouco estoque
+
+SELECT nome, quantidade_estoque
+FROM livros
+WHERE quantidade_estoque < 5;
+
+-- Comprovante de venda
+
+SELECT 
+    v.id_venda,
+    c.nome AS cliente,
+    v.data_venda,
+    l.nome AS livro,
+    iv.quantidade,
+    iv.preco_unitario,
+    (iv.quantidade * iv.preco_unitario) AS subtotal
+FROM vendas v
+JOIN clientes c ON v.id_cliente = c.id_cliente
+JOIN itens_venda iv ON v.id_venda = iv.id_venda
+JOIN livros l ON iv.id_livro = l.id_livro
+WHERE v.id_venda = 2;
